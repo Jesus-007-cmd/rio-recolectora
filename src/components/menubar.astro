@@ -1,0 +1,136 @@
+---
+const menuItems = [
+  { title: "Acerca de", url: "/acerca" },
+  { title: "Servicios", url: "/servicios" },
+  { title: "Equipo", url: "/equipo" },
+  { title: "Casos de éxito", url: "/casos-exito" },
+  { title: "FAQ", url: "/faq" },
+  { title: "Contacto", url: "/contacto" }
+];
+---
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<div class="menubar-container">
+  <div class="menubar">
+    <!-- Texto "Menú" dentro del círculo -->
+    <span class="menu-label">Menú</span>
+
+    <!-- Contenido del menú -->
+    <div class="menu-content">
+      {menuItems.map((item) => (
+        <a class="menu-item btn btn-light" href={item.url}>{item.title}</a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menubar = document.querySelector(".menubar");
+
+    // Expandir menú al pasar el mouse
+    menubar.addEventListener("mouseenter", () => {
+      menubar.classList.add("expanded");
+    });
+
+    // Contraer menú al salir el mouse
+    menubar.addEventListener("mouseleave", () => {
+      menubar.classList.remove("expanded");
+    });
+  });
+</script>
+
+<style>
+  /* Contenedor del menú */
+  .menubar-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+  }
+
+  /* Menubar compacto */
+  .menubar {
+    background: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+    border-radius: 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+  }
+
+  /* Estado expandido */
+  .menubar.expanded {
+    width: auto;
+    height: 90px;
+    padding: 10px 20px;
+    justify-content: flex-start;
+  }
+
+  /* Texto "Menú" dentro del botón */
+  .menu-label {
+    font-size: 16px; /* Igual al tamaño de los otros textos */
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    position: absolute;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  /* Ocultar el texto "Menú" cuando el menú se expande */
+  .menubar.expanded .menu-label {
+    opacity: 0;
+  }
+
+  /* Contenedor de opciones oculto inicialmente */
+  .menu-content {
+    display: flex;
+    gap: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    margin-left: 15px;
+    align-items: center;
+  }
+
+  /* Mostrar opciones cuando el menú está expandido */
+  .menubar.expanded .menu-content {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Estilos de los botones del menú */
+  .menu-item {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f7f7f7, #eaeaea);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    height: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Efecto hover en los botones */
+  .menu-item:hover {
+    background: linear-gradient(135deg, #d6d6d6, #bfbfbf);
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+</style>

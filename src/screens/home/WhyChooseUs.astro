@@ -1,0 +1,27 @@
+---
+const benefits = [
+  { title: "Experiencia y Confianza", icon: "bi-award", description: "Más de 10 años en el sector garantizando un servicio de calidad." },
+  { title: "Cumplimiento Ambiental", icon: "bi-shield-check", description: "Operamos bajo estrictas normas ambientales y de seguridad." },
+  { title: "Flota Propia", icon: "bi-truck", description: "Disponemos de transporte especializado para recolección y disposición." },
+  { title: "Atención Personalizada", icon: "bi-person-check", description: "Soluciones a la medida de las necesidades de cada cliente." }
+];
+---
+
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold text-primary mb-4">¿Por qué elegirnos?</h2>
+    <div class="row">
+      {benefits.map((benefit) => (
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card shadow-sm border-0">
+            <div class="card-body">
+              <i class={`bi ${benefit.icon} display-4 text-success`}></i>
+              <h5 class="fw-bold mt-3">{benefit.title}</h5>
+              <p class="text-muted">{benefit.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

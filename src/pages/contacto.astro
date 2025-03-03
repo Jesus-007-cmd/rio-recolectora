@@ -1,0 +1,29 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Header />
+
+<div class="container mt-5">
+  <h1 class="text-center text-primary">Contáctanos</h1>
+  <p class="text-center">Si necesitas más información, envíanos un mensaje y te responderemos lo antes posible.</p>
+
+  <form class="mt-4">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="name" placeholder="Tu Nombre">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Correo Electrónico</label>
+      <input type="email" class="form-control" id="email" placeholder="correo@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Mensaje</label>
+      <textarea class="form-control" id="message" rows="3" placeholder="Escribe tu mensaje aquí"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
+
+<Footer />

@@ -1,0 +1,52 @@
+---
+const testimonials = [
+  {
+    name: "Carlos Méndez",
+    company: "Industria Química MX",
+    feedback: "RIO RECOLECTORA ha sido nuestro socio de confianza en la gestión de residuos. Su servicio es eficiente y cumplen con todas las normativas ambientales.",
+    imageUrl: "/assets/images/testimonial1.jpg"
+  },
+  {
+    name: "Ana Rodríguez",
+    company: "Energía Sustentable S.A.",
+    feedback: "Nos ayudaron a mejorar nuestros procesos de reciclaje y a cumplir con regulaciones ambientales. Excelente atención y profesionalismo.",
+    imageUrl: "/assets/images/testimonial2.jpg"
+  },
+  {
+    name: "Javier Gómez",
+    company: "Automotriz del Norte",
+    feedback: "Gran equipo de trabajo. Siempre puntuales y con soluciones a la medida de nuestras necesidades. 100% recomendados.",
+    imageUrl: "/assets/images/testimonial3.jpg"
+  }
+];
+---
+
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold text-primary mb-4">Lo que dicen nuestros clientes</h2>
+    <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        {testimonials.map((testimonial, index) => (
+          <div class={`carousel-item ${index === 0 ? 'active' : ''}`}>
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="card border-0 shadow-sm p-4">
+                  <img src={testimonial.imageUrl} alt={testimonial.name} class="rounded-circle mx-auto d-block mb-3" width="100">
+                  <p class="lead">"{testimonial.feedback}"</p>
+                  <h5 class="fw-bold">{testimonial.name}</h5>
+                  <p class="text-muted">{testimonial.company}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+</section>

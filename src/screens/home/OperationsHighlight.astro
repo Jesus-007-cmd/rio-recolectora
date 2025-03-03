@@ -1,0 +1,33 @@
+---
+const images = [
+  {
+    src: "/images/operaciones-recoleccion.jpg",
+    alt: "Equipo realizando la recolección de residuos industriales",
+    caption: "Operaciones de Recolección Eficientes"
+  },
+  {
+    src: "/images/compromiso-ambiental.jpg",
+    alt: "Prácticas sostenibles en el manejo de residuos",
+    caption: "Compromiso con el Medio Ambiente"
+  }
+];
+---
+
+<section class="py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold text-primary mb-3">Nuestras Operaciones</h2>
+    <p class="text-muted mb-5">Comprometidos con la excelencia y el medio ambiente</p>
+    <div class="row">
+      {images.map((image) => (
+        <div class="col-md-6 mb-4">
+          <div class="card border-0 shadow-sm">
+            <img src={image.src} alt={image.alt} class="card-img-top img-fluid rounded" />
+            <div class="card-body">
+              <p class="card-text fw-bold">{image.caption}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
