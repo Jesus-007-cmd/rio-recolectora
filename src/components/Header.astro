@@ -9,7 +9,7 @@
         </a>
         <div class="company-name ms-2 text-white">
           <h1 class="mb-0 fw-bold">Recolectora Industrial de Occidente</h1>
-          <p class="mb-0 ">Recolección de Residuos de Manejo Especial</p>
+          <p class="mb-0">Recolección de Residuos de Manejo Especial</p>
         </div>
       </div>
 
@@ -23,23 +23,58 @@
 </header>
 
 <style>
-/* ✅ Fondo de la navbar con degradado verde y azul para una apariencia más ecológica y profesional */
+/* ✅ Fondo de la navbar con degradado basado en la imagen */
 .navbar-custom {
-  background: linear-gradient(135deg,  #146EB4, #0C4B33) !important; /* Verde oscuro a azul */
+  background: linear-gradient(145deg, #ee2b47, #d5112d, #f25a70, #b3001b) !important;
   padding: 15px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* ✅ Tamaño del logo */
+/* ✅ Tamaño del logo con animación de brillo */
 .navbar-logo {
-  max-height: 100px;
+  max-height: 90px;
+  filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.8)); /* Efecto de brillo */
+  animation: glowEffect 3s infinite alternate ease-in-out;
+  transition: transform 0.3s ease-out;
 }
+
+/* ✅ Animación de brillo para el logo */
+@keyframes glowEffect {
+  0% {
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 1));
+  }
+  100% {
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.5));
+  }
+}
+
+/* ✅ Efecto de giro rápido al pasar el mouse */
+.navbar-logo:hover {
+    transition: transform 4s ease-out;
+  transform: rotateY(360deg)
+} 
 
 /* ✅ Ajuste de texto */
-.company-name h5 {
-  font-size: 1rem;
+.company-name h1 {
+  font-size: 2rem;
+  color: #fff;
 }
 
 .company-name p {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* ✅ Contacto alineado a la derecha */
+.d-lg-flex span {
+  color: #fff;
+}
+
+/* ✅ Sombra para mejorar legibilidad en el texto */
+.text-white {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 </style>
