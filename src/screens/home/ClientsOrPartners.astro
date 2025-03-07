@@ -14,16 +14,17 @@ const clients = [
 
 ---
 
-<section id="clients" class="py-5 bg-light">
+<section id="clients" class="py-5" style="background: #f8f9fa;">
   <div class="container text-center">
-    <h2 class="fw-bold text-primary mb-4">Nuestros Clientes</h2>
+    <!-- Título con efecto de brillo -->
+    <h2 class="fw-bold text-danger mb-4 title-glow">Nuestros Clientes</h2>
     
-    <!-- Carrusel de logos -->
+    <!-- Carrusel de logos en movimiento -->
     <div class="logos-container">
       <div class="logos-slide">
-        {clients.concat(clients).map((client) => ( // Duplica los logos para el efecto infinito
-          <div class="logo-item">
-            <img src={client.logoUrl} alt={`Logo de ${client.name}`} class="img-fluid" />
+        {clients.concat(clients).map((client, index) => (
+          <div class="logo-item" key={index}>
+            <img src={client.logoUrl} alt={`Logo de ${client.name}`} class="img-fluid client-logo" />
           </div>
         ))}
       </div>
@@ -32,42 +33,48 @@ const clients = [
 </section>
 
 <style>
-  /* Contenedor del carrusel */
-  .logos-container {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    width: 100%;
-    padding: 20px 0;
-    background: #f9f9f9;
-  }
+/* ✅ Efecto de brillo en el título */
+.title-glow {
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
 
-  /* Línea de logos en movimiento */
-  .logos-slide {
-    display: flex;
-    gap: 40px;
-    animation: scroll 15s linear infinite;
-  }
+/* ✅ Contenedor del carrusel */
+.logos-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+  background: #f8f9fa;
+}
 
-  /* Cada logo */
-  .logo-item {
-    flex: 0 0 auto;
-    width: 150px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* ✅ Línea de logos en movimiento */
+.logos-slide {
+  display: flex;
+  gap: 40px;
+  animation: scroll 15s linear infinite;
+}
 
-  .logo-item img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
+/* ✅ Cada logo */
+.logo-item {
+  flex: 0 0 auto;
+  width: 150px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  /* Animación de desplazamiento */
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); } /* Se mueve la mitad del bloque duplicado */
-  }
+.client-logo {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+/* ✅ Animación de desplazamiento */
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); } /* Se mueve la mitad del bloque duplicado */
+}
 </style>

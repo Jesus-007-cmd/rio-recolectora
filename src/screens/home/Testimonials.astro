@@ -21,19 +21,20 @@ const testimonials = [
 ];
 ---
 
-<section class="py-5 bg-light">
+<section class="py-5" style="background: #f8f9fa;">
   <div class="container text-center">
-    <h2 class="fw-bold text-primary mb-4">Lo que dicen nuestros clientes</h2>
+    <!-- Título con efecto de brillo -->
+    <h2 class="fw-bold text-danger mb-4 title-glow">Lo que dicen nuestros clientes</h2>
     <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         {testimonials.map((testimonial, index) => (
-          <div class={`carousel-item ${index === 0 ? 'active' : ''}`}>
+          <div class={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
             <div class="row justify-content-center">
               <div class="col-md-8">
-                <div class="card border-0 shadow-sm p-4">
+                <div class="card border-0 shadow-lg p-4 testimonial-card">
                   <img src={testimonial.imageUrl} alt={testimonial.name} class="rounded-circle mx-auto d-block mb-3" width="100">
                   <p class="lead">"{testimonial.feedback}"</p>
-                  <h5 class="fw-bold">{testimonial.name}</h5>
+                  <h5 class="fw-bold text-dark">{testimonial.name}</h5>
                   <p class="text-muted">{testimonial.company}</p>
                 </div>
               </div>
@@ -50,3 +51,28 @@ const testimonials = [
     </div>
   </div>
 </section>
+
+<style>
+/* ✅ Efecto de brillo en el título */
+.title-glow {
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+/* ✅ Diseño de tarjetas de testimonios */
+.testimonial-card {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ✅ Sombra y efecto hover en tarjetas */
+.testimonial-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+</style>

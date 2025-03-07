@@ -1,80 +1,152 @@
-<header>
+<header class="header-container">
   <nav class="navbar navbar-expand-lg fixed-top navbar-custom shadow">
     <div class="container d-flex justify-content-between align-items-center">
       
-      <!-- Logo y Nombre de la Empresa -->
-      <div class="d-flex align-items-center w-100">
-        <a class="navbar-brand" href="/">
-          <img src="/images/logo.png" alt="RIO Recolectora" class="navbar-logo img-fluid">
-        </a>
-        <div class="company-name ms-2 text-white">
-          <h1 class="mb-0 fw-bold">Recolectora Industrial de Occidente</h1>
-          <p class="mb-0">Recolección de Residuos de Manejo Especial</p>
+      <!-- 🖥️ Versión para PC -->
+      <div class="d-none d-lg-flex w-100 justify-content-between align-items-center">
+        
+        <!-- Logo y Nombre de la Empresa -->
+        <div class="d-flex align-items-center">
+          <a class="navbar-brand" href="/">
+            <img src="/images/logo.png" alt="RIO Recolectora" class="navbar-logo img-fluid">
+          </a>
+          <div class="company-name ms-2 text-white">
+            <h1 class="mb-0 fw-bold company-title">Recolectora Industrial de Occidente</h1>
+            <p class="mb-0 company-subtitle">Recolección de Residuos de Manejo Especial</p>
+          </div>
+        </div>
+
+        <!-- Imagen del Camión -->
+        <img src="/images/camionportada.png" alt="Camión de recolección" class="header-truck">
+        
+        <!-- Información de Contacto -->
+        <div class="contact-info text-white text-end">
+          <span class="fw-bold fs-5">TEL. 3810 · 0453</span>
+          <span class="small">Calle 12 Nº2001, Z.I. Guadalajara, Jalisco.</span>
         </div>
       </div>
 
-      <!-- Información de Contacto -->
-      <div class="d-none d-lg-flex flex-column align-items-end text-white">
-        <span class="fw-bold fs-5">TEL. 3810 · 0453</span>
-        <span class="small">Calle 12 Nº2001, Z.I. Guadalajara, Jalisco.</span>
+      <!-- 📱 Versión para Móvil -->
+      <div class="d-block d-lg-none text-center w-100">
+        
+        <!-- Texto principal arriba -->
+        <div class="header-title text-white">
+          <h2 class="fw-bold">Recolectora Industrial de Occidente</h2>
+          <h4>Recolección de Residuos de Manejo Especial</h4>
+        </div>
+
+  <div class="row d-flex align-items-center text-center  ">
+    <!-- Logo en el centro -->
+    <div class="col-6 m-0">
+      <a class="navbar-brand d-block mx-auto" href="/">
+        <img src="/images/logo.png" alt="RIO Recolectora" class="navbar-logo m-0 img-fluid">
+      </a>
+    </div>
+
+    <!-- Camión al mismo nivel -->
+    <div class="col-6">
+      <img src="/images/camionportada.png" alt="Camión de recolección" class=" header-truck-mobile img-fluid">
+    </div>
+  </div>
+
+
+        <!-- Contacto abajo -->
+        <div class="contact-info text-white">
+          <span class="fw-bold">TEL. 3810 · 0453</span>
+          <p class="small">Calle 12 Nº2001, Z.I. Guadalajara, Jalisco.</p>
+        </div>
       </div>
+
     </div>
   </nav>
 </header>
 
 <style>
-/* ✅ Fondo de la navbar con degradado basado en la imagen */
+/* ✅ Fondo de la navbar con degradado */
 .navbar-custom {
   background: linear-gradient(145deg, #ee2b47, #d5112d, #f25a70, #b3001b) !important;
   padding: 15px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
-/* ✅ Tamaño del logo con animación de brillo */
-.navbar-logo {
-  max-height: 90px;
-  filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.8)); /* Efecto de brillo */
-  animation: glowEffect 3s infinite alternate ease-in-out;
-  transition: transform 0.3s ease-out;
-}
-
-/* ✅ Animación de brillo para el logo */
-@keyframes glowEffect {
-  0% {
-    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.5));
+/* ✅ Estilos para PC */
+@media (min-width: 992px) {
+  .navbar-logo {
+    max-height: 90px;
   }
-  50% {
-    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 1));
+
+  .company-title {
+    font-size: 2rem;
+    color: #fff;
   }
-  100% {
-    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.5));
+
+  .company-subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+  }
+
+  .header-truck {
+    max-width: 25%;
+    height: auto;
+    margin-left: auto;
+    position: relative;
+    z-index: 0;
+    opacity: 0.9;
+  }
+
+  .contact-info span {
+    color: #fff;
   }
 }
 
-/* ✅ Efecto de giro rápido al pasar el mouse */
-.navbar-logo:hover {
-    transition: transform 4s ease-out;
-  transform: rotateY(360deg)
-} 
+/* ✅ Estilos exclusivos para Móvil */
+@media (max-width: 991px) {
+  .header-container {
+    text-align: center;
+    
+    with: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* ✅ Ajuste de texto */
-.company-name h1 {
-  font-size: 2rem;
-  color: #fff;
-}
+  .header-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 10px 0;
+  }
 
-.company-name p {
-  font-size: 1.2rem;
-  color: #fff;
-}
+  .header-subtitle {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
 
-/* ✅ Contacto alineado a la derecha */
-.d-lg-flex span {
-  color: #fff;
-}
+  /* ✅ Logo más grande y centrado */
+  .navbar-logo {
+    max-height: 80px;
+    margin-bottom: 10px;
+  }
 
-/* ✅ Sombra para mejorar legibilidad en el texto */
-.text-white {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  /* ✅ Camión centrado debajo del logo */
+  .header-truck-mobile {
+    max-width: 65%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    opacity: 0.9;
+  }
+
+  /* ✅ Contacto alineado abajo */
+  .contact-info {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 15px;
+  }
 }
 </style>
