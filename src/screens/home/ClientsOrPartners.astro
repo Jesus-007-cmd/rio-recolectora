@@ -1,15 +1,20 @@
 ---
 const clients = [
-  { name: "Ford", logoUrl: "https://www.ford.com.mx/content/ford/mx/es_mx/site-wide-content/billboard-carousels/homepage-carousel/jcr:content/par/billboard_1449001769/image.imgs.full.high.jpg" },
-  { name: "Universidad de Guadalajara", logoUrl: "https://www.udg.mx/sites/default/files/identidad_corporativa/udg/logos/udg-escudo-color.png" },
-  { name: "Dulces de la Rosa", logoUrl: "https://dulcesdelarosa.com.mx/sites/default/files/logo.png" },
-  { name: "Sabritas", logoUrl: "https://www.sabritas.com.mx/themes/custom/sabritas/logo.png" },
-  { name: "Farmacias Guadalajara", logoUrl: "https://www.farmaciasguadalajara.com.mx/assets/images/logo.png" },
-  { name: "BASF", logoUrl: "https://www.basf.com/global/assets/logo.svg" },
-  { name: "Pemex", logoUrl: "https://www.pemex.com/estaticos/imagenes/logotipo-pemex.svg" },
-  { name: "CFE", logoUrl: "https://www.cfe.mx/assets/images/logo.png" },
-  { name: "Banco de México", logoUrl: "https://www.banxico.org.mx/images/logo_banxico.svg" },
-  { name: "Axtel", logoUrl: "https://www.axtelcorp.mx/sites/axtelcpo/files/axtel_logo.png" }
+  { name: "Ford", logoUrl: "/images/logos-clientes/Ford-logo.jpg" },
+  { name: "Universidad de Guadalajara", logoUrl: "/images/logos-clientes/Logo_UDG.jpeg" },
+  { name: "Dulces de la Rosa", logoUrl:  "/images/logos-clientes/dulces-de-la-rosa_marca.png" },
+  { name: "Sabritas", logoUrl: "/images/logos-clientes/logo-sabritas.png" },
+  { name: "Farmacias Guadalajara", logoUrl: "/images/logos-clientes/farmacias-guadalajara.jpg" },
+  { name: "BASF", logoUrl: "/images/logos-clientes/BASF-logo.png" },
+  { name: "Pemex", logoUrl: "/images/logos-clientes/pemex-logo.jpg" },
+  { name: "CFE", logoUrl: "/images/logos-clientes/Logo-CFE-1.png" },
+  { name: "Banco de México", logoUrl: "/images/logos-clientes/Banco_de_mexico_logo.png" },
+  { name: "Axtel", logoUrl: "/images/logos-clientes/tn_logo_axtel_viejo.png" },
+  { name: "Aceros Murillo", logoUrl: "/images/logos-clientes/aceros-murillo-sa-de-cv-logo.jpg" },
+  { name: "Universidad Autonoma de Guadalajara", logoUrl: "/images/logos-clientes/UAG-LOGO.jpg" },
+  { name: "VANTEX", logoUrl: "/images/logos-clientes/vantex-logo.jpg" },
+  { name: "Disco Roller", logoUrl: "/images/logos-clientes/disco-roller-logo.jpg" },
+  { name: "Cablevision", logoUrl: "/images/logos-clientes/cablevision-logo.jpg" }
 ];
 
 ---
@@ -19,11 +24,22 @@ const clients = [
     <!-- Título con efecto de brillo -->
     <h2 class="fw-bold text-danger mb-4 title-glow">Nuestros Clientes</h2>
     
-    <!-- Carrusel de logos en movimiento -->
+    <!-- Carrusel de logos en movimiento hacia la izquierda -->
     <div class="logos-container">
-      <div class="logos-slide">
-        {clients.concat(clients).map((client, index) => (
-          <div class="logo-item" key={index}>
+      <div class="logos-slide left">
+        {clients.concat(clients).concat(clients).map((client, index) => (
+          <div class="logo-item" key={`left-${index}`}> 
+            <img src={client.logoUrl} alt={`Logo de ${client.name}`} class="img-fluid client-logo" />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Carrusel de logos en movimiento hacia la derecha -->
+    <div class="logos-container">
+      <div class="logos-slide right">
+        {clients.concat(clients).concat(clients).map((client, index) => (
+          <div class="logo-item" key={`right-${index}`}> 
             <img src={client.logoUrl} alt={`Logo de ${client.name}`} class="img-fluid client-logo" />
           </div>
         ))}
@@ -46,13 +62,23 @@ const clients = [
   width: 100%;
   padding: 20px 0;
   background: #f8f9fa;
+  margin-bottom: 20px;
 }
 
-/* ✅ Línea de logos en movimiento */
-.logos-slide {
+/* ✅ Línea de logos en movimiento (izquierda) */
+.logos-slide.left {
   display: flex;
   gap: 40px;
-  animation: scroll 15s linear infinite;
+  animation: scroll-left 15s linear infinite;
+  width: max-content;
+}
+
+/* ✅ Línea de logos en movimiento (derecha) */
+.logos-slide.right {
+  display: flex;
+  gap: 40px;
+  animation: scroll-right 15s linear infinite;
+  width: max-content;
 }
 
 /* ✅ Cada logo */
@@ -72,9 +98,15 @@ const clients = [
   filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.1));
 }
 
-/* ✅ Animación de desplazamiento */
-@keyframes scroll {
+/* ✅ Animación de desplazamiento hacia la izquierda con reinicio continuo */
+@keyframes scroll-left {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); } /* Se mueve la mitad del bloque duplicado */
+  to { transform: translateX(-33.33%); }
+}
+
+/* ✅ Animación de desplazamiento hacia la derecha con reinicio continuo */
+@keyframes scroll-right {
+  from { transform: translateX(-33.33%); }
+  to { transform: translateX(0); }
 }
 </style>
