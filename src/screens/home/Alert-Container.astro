@@ -1,11 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tarjeta Giratoria</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
+---
+// Este archivo es un componente Astro
+---
+
+  <div class="card-container">
+    <div class="card perspective-1000">
+      <div class="card-inner">
+        <!-- Frente de la tarjeta -->
+        <div class="card-front bg-yellow-400 text-gray-800 center">
+          CUIDADO ANTES DE CONTRATAR ...
+        </div>
+
+        <!-- Reverso de la tarjeta -->
+        <div class="card-back bg-yellow-400 text-gray-800">
+          Recuerde que a quien contrate tendrá acceso a su casa, coto, fraccionamiento, negocio, establecimiento, empresa, NO SEA VÍCTIMA DE 'HALCONEO' DEL CRIMEN ORGANIZADO, contrate empresas recolectoras formales.
+        </div>
+      </div>
+    </div>
+  </div>
+
+<style>
     /* Estilos de la tarjeta giratoria */
     .perspective-1000 {
       perspective: 1000px;
@@ -16,7 +29,6 @@
       justify-content: center;
       align-items: center;
       height: 180px;
-      
     }
 
     .card {
@@ -78,24 +90,4 @@
       }
     }
   </style>
-</head>
-<body>
 
-  <div class="card-container">
-    <div class="card perspective-1000">
-      <div class="card-inner">
-        <!-- Frente de la tarjeta -->
-        <div class="card-front bg-yellow-400 text-gray-800 center">
-          CUIDADO ANTES DE CONTRATAR ...
-        </div>
-
-        <!-- Reverso de la tarjeta -->
-        <div class="card-back bg-yellow-400 text-gray-800">
-          Recuerde que a quien contrate tendrá acceso a su casa, coto, fraccionamiento, negocio, establecimiento, empresa, NO SEA VÍCTIMA DE 'HALCONEO' DEL CRIMEN ORGANIZADO, contrate empresas recolectoras formales.
-        </div>
-      </div>
-    </div>
-  </div>
-
-</body>
-</html>
