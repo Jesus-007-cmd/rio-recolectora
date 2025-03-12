@@ -14,6 +14,8 @@ let isMobile = false;
 // Detectar si es móvil
 if (typeof window !== "undefined") {
 isMobile = window.innerWidth <= 768;
+console.log("mobil")
+alert(isMobile)
 }
 ---
 
@@ -36,6 +38,7 @@ isMobile = window.innerWidth <= 768;
 
 <!-- Menú de móvil (se muestra solo en pantallas pequeñas) -->
 <div class="mobile-menu-container d-lg-none">
+sadfadsf
   <button class="hamburger-menu" id="hamburger-button">☰</button>
   <div class="mobile-menu" id="mobile-menu">
     {menuItems.map((item) => (

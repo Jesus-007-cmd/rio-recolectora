@@ -29,7 +29,7 @@ import AlertContainer from '../screens/home/Alert-Container.astro';
   <Header />
  
   <Welcome  />
- <section class="flex justify-between gap-4 p-5">
+<section class="flex flex-col sm:flex-row justify-between gap-4 p-5">
   <!-- Componente a la izquierda -->
   <div class="flex-1">
     <TextMarquee />
@@ -37,10 +37,9 @@ import AlertContainer from '../screens/home/Alert-Container.astro';
 
   <!-- Componente a la derecha -->
   <div class="flex-1">
-    <AlertContainer />
+    <AlertContainer  />
   </div>
 </section>
-
 
 
 

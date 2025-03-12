@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-    
+  
     publicDir: 'public', // Asegura que está permitiendo acceder a public/
     vite: {
       plugins: [tailwindcss()],
