@@ -37,17 +37,17 @@ alert(isMobile)
 </div>
 
 <!-- Menú de móvil (se muestra solo en pantallas pequeñas) -->
-<div class="mobile-menu-container d-lg-none">
-
+<div class="mobile-menu-container">
   <button class="hamburger-menu" id="hamburger-button">☰</button>
   <div class="mobile-menu" id="mobile-menu">
-    {menuItems.map((item) => (
-      <a class="mobile-menu-item" href={item.url}>{item.title}</a>
-    ))}
+    <a class="mobile-menu-item" href="#about">Acerca de</a>
+    <a class="mobile-menu-item" href="#services">Servicios</a>
+    <a class="mobile-menu-item" href="#operations">Operaciones</a>
+    <a class="mobile-menu-item" href="#why-choose-us">¿Por qué elegirnos?</a>
+    <a class="mobile-menu-item" href="#testimonials">Testimonios</a>
+    <a class="mobile-menu-item" href="#clients">Clientes</a>
   </div>
 </div>
-
-
 
 <script is:inline>
 document.addEventListener("DOMContentLoaded", function () {
