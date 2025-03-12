@@ -1,54 +1,18 @@
 <!-- Menú de móvil (solo visible en pantallas pequeñas) -->
 <div class="mobile-menu-container">
-  <button class="hamburger-menu" id="hamburger-button">☰</button>
-  <div class="mobile-menu" id="mobile-menu">
+  <input type="checkbox" id="hamburger-toggle" class="hamburger-toggle">
+  <label for="hamburger-toggle" class="hamburger-menu">☰</label>
+  
+  <div class="mobile-menu">
+    <!-- Elementos del menú -->
     <a class="mobile-menu-item" href="#about">Acerca de</a>
-    <div class="mobile-menu-item">
-      <a href="#services">Servicios</a>
-      <!-- Submenú de Servicios -->
-      <div class="submenu">
-        <a href="#web-design">Diseño web</a>
-        <a href="#seo">SEO</a>
-        <a href="#marketing">Marketing</a>
-      </div>
-    </div>
+    <a class="mobile-menu-item" href="#services">Servicios</a>
     <a class="mobile-menu-item" href="#operations">Operaciones</a>
     <a class="mobile-menu-item" href="#why-choose-us">¿Por qué elegirnos?</a>
     <a class="mobile-menu-item" href="#testimonials">Testimonios</a>
     <a class="mobile-menu-item" href="#clients">Clientes</a>
   </div>
 </div>
-
-<script>
-  // Espera que el contenido de la página esté cargado
-  document.addEventListener("DOMContentLoaded", function () {
-    const hamburgerButton = document.getElementById("hamburger-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    // Verifica si el botón de hamburguesa y el menú existen
-    if (hamburgerButton && mobileMenu) {
-      hamburgerButton.addEventListener("click", function () {
-        // Muestra u oculta el menú móvil al hacer clic
-        mobileMenu.classList.toggle("open");
-      });
-    }
-
-    // Agrega eventos para submenús
-    const menuItems = document.querySelectorAll('.mobile-menu-item > a');
-
-    menuItems.forEach(item => {
-      item.addEventListener('click', function (event) {
-        const submenu = this.nextElementSibling;
-
-        // Verifica si el siguiente elemento es un submenú
-        if (submenu && submenu.classList.contains('submenu')) {
-          event.preventDefault(); // Evita que el enlace se active
-          submenu.classList.toggle('open');
-        }
-      });
-    });
-  });
-</script>
 
 <style>
   /* Estilos solo para dispositivos móviles */
@@ -58,6 +22,11 @@
       bottom: 20px;
       right: 20px;
       z-index: 1000;
+    }
+
+    /* El botón de hamburguesa (checkbox oculto) */
+    .hamburger-toggle {
+      display: none;
     }
 
     .hamburger-menu {
@@ -90,8 +59,8 @@
       min-width: 180px;
     }
 
-    .mobile-menu.open {
-      display: block;
+    .hamburger-toggle:checked + .hamburger-menu + .mobile-menu {
+      display: block; /* Muestra el menú cuando se activa el checkbox */
     }
 
     .mobile-menu-item {
@@ -106,13 +75,19 @@
       background: #f5f5f5;
     }
 
+    /* Estilos para los submenús */
     .submenu {
       display: none;
       padding-left: 20px;
     }
 
-    .submenu.open {
-      display: block;
+    .submenu-toggle:checked + .submenu {
+      display: block; /* Muestra el submenú cuando se activa el checkbox */
+    }
+
+    .submenu-toggle-label {
+      cursor: pointer;
+      margin-left: 10px;
     }
 
     .submenu a {
