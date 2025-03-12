@@ -38,7 +38,7 @@ alert(isMobile)
 
 <!-- Menú de móvil (se muestra solo en pantallas pequeñas) -->
 <div class="mobile-menu-container d-lg-none">
-sadfadsf
+
   <button class="hamburger-menu" id="hamburger-button">☰</button>
   <div class="mobile-menu" id="mobile-menu">
     {menuItems.map((item) => (
@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (hamburgerButton && mobileMenu) {
     hamburgerButton.addEventListener("click", () => {
       mobileMenu.classList.toggle("open");
+      alert("hola")
     });
   }
 });
