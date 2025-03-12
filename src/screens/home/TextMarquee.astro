@@ -1,0 +1,57 @@
+---
+const textLines = [
+  "Diseñamos para usted un servicio de excelencia",
+  "Servicios de valor agregado para una solución integral",
+  "En el manejo de residuos",
+  "Nosotros no vendemos contratos"
+];
+---
+
+<section class="py-0 bg-red-500 text-white">
+  
+    <!-- Contenedor envolvente para manejar el overflow y evitar el desbordamiento -->
+    <div class="marquee-wrapper">
+      <div class="marquee-container">
+        {textLines.map((line, index) => (
+          <div key={index} class="marquee-item">
+            {line}
+          </div>
+        ))}
+      </div>
+    </div>
+  
+</section>
+
+<style>
+  .marquee-wrapper {
+    overflow: hidden;  /* Asegura que todo lo que se desborda se oculte */
+    position: relative;  /* Necesario para asegurar que los elementos se apilen correctamente */
+    height: 35px;  /* Establece la altura que debe tener el área visible */
+  }
+
+  .marquee-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    animation: marqueeUp 30s linear infinite;
+  }
+
+  .marquee-item {
+    font-size: 1.25rem;  /* Tamaño de texto ajustado */
+    font-weight: bold;
+    text-align: center;
+
+    margin: 0;
+  }
+
+  /* Animación para desplazar el contenedor hacia arriba */
+  @keyframes marqueeUp {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-100%);  /* Desplaza el texto hacia arriba */
+    }
+  }
+</style>

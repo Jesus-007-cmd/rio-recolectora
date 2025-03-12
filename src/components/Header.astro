@@ -72,9 +72,32 @@
 
 /* ✅ Estilos para PC */
 @media (min-width: 992px) {
+
   .navbar-logo {
     max-height: 90px;
-  }
+    width: auto;
+    border-radius: 50%;  /* Hace la imagen circular */
+    animation: grow-shine 8s infinite ease-in-out;  /* Animación continua */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);  /* Resplandor inicial */
+    transition: transform 0.6s ease-in-out;
+}
+
+@keyframes grow-shine {
+    0% {
+        transform: scale(1);  /* Tamaño normal */
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);  /* Resplandor suave */
+    }
+    50% {
+        transform: scale(1.04);  /* Crece un poco */
+        box-shadow: 0 0 12px rgba(255, 255, 255, 1);  /* Resplandor fuerte */
+    }
+    100% {
+        transform: scale(1);  /* Vuelve al tamaño normal */
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);  /* Resplandor suave */
+    }
+}
+
+
 
   .company-title {
     font-size: 2rem;

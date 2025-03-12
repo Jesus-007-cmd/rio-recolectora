@@ -7,20 +7,23 @@ const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
     <!-- Sección Izquierda -->
     <div class="footer-left">
       <h4>Contacto</h4>
-      <p>Dirección: Calle Ejemplo 123, Ciudad, País</p>
-      <p>Teléfono: +52 123 456 7890</p>
+      <p>Dirección: Calle 12 Nº2001, Z.I. Guadalajara, Jalisco.</p>
+      <p>Teléfono: +52 3810 - 0453</p>
       <p>Email: contacto@riorecolectora.com</p>
     </div>
 
     <!-- Media luna sin texto -->
-    <div class="footer-center"></div>
+    <div ></div>
 
     <!-- Sección Derecha -->
     <div class="footer-right">
-      <h4>Síguenos</h4>
-       <a href="#"><img src="/images/logos-redes-sociales/logo-facebook.webp" alt="Facebook" class="social-img"></a>
-      <a href="#"><img src="/images/logos-redes-sociales/x-logo.png" alt="Twitter" class="social-img"></a>
-      <a href="#"><img src="/images/logos-redes-sociales/instagram-logo.png" alt="Instagram" class="social-img"></a>
+      
+     <div class="d-flex justify-content-center align-items-center gap-3 mb-4">
+    <h4 class="m-0">Síguenos</h4>
+    <a href="#"><img src="/images/logos-redes-sociales/logo-facebook.png" alt="Facebook" class="social-img"></a>
+    <a href="#"><img src="/images/logos-redes-sociales/x-logo.png" alt="Twitter" class="social-img"></a>
+    <a href="#"><img src="/images/logos-redes-sociales/instagram-logo.png" alt="Instagram" class="social-img"></a>
+</div>
 
       <div class="footer-bottom">
     <p>© 2025 RIO RECOLECTORA - Todos los derechos reservados.</p>
@@ -55,12 +58,17 @@ const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
   position: relative;
 }
 .social-img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  margin-right: 15px;
+  width: 40px;  /* Establece un tamaño uniforme */
+  height: 40px; /* Ajusta la altura para que sea proporcional */
+  object-fit: contain; /* Asegura que las imágenes no se distorsionen */
+  margin-right: 15px; /* Separación entre los iconos */
   transition: transform 0.3s;
 }
+.social-img:hover {
+   transform: scale(1.2); 
+}
+
+
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -71,21 +79,10 @@ const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
 }
 
 .footer-left, .footer-right {
-  width: 30%;
+  width: 40%;
 }
 
-.footer-center {
-  width: 150px;
-  height: 75px;
-  background-color: #fff;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
-  position: absolute;
-  top: -35px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
-}
+
 
 .footer-bottom {
   text-align: center;
