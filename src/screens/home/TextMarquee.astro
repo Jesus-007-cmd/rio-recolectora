@@ -7,10 +7,11 @@ const textLines = [
 ];
 ---
 
-<section class="py-0 bg-red-500 text-white">
+<section class="py-0 flex flex-col items-center">
   
+  <div class="py-0 bg-red-500 text-white w-full">
     <!-- Contenedor envolvente para manejar el overflow y evitar el desbordamiento -->
-    <div class="marquee-wrapper">
+    <div class="marquee-wrapper w-11/12 mx-auto">
       <div class="marquee-container">
         {textLines.map((line, index) => (
           <div key={index} class="marquee-item">
@@ -19,7 +20,12 @@ const textLines = [
         ))}
       </div>
     </div>
+  </div>
+
+
+
   
+
 </section>
 
 <style>
@@ -33,7 +39,6 @@ const textLines = [
     display: flex;
     flex-direction: column;
     gap: 10px;
-    
     animation: marqueeUp 30s linear infinite;
   }
 
@@ -41,7 +46,6 @@ const textLines = [
     font-size: 1.25rem;  /* Tamaño de texto ajustado */
     font-weight: bold;
     text-align: center;
-
     margin: 0;
   }
 

@@ -1,0 +1,210 @@
+---
+const services = [
+  {
+    title: "Recolección de Residuos Sólidos Urbanos",
+    description:
+      "Son aquellos residuos generados en casas habitación, que resultan de la eliminación de materiales que se utilizan en las actividades domésticas.",
+    image: "/images/nuestros-servicios/servicio1.jpg",
+  },
+  {
+    title: "Recolección de Residuos de Manejo Especial",
+    description: "Son aquellos residuos generados en procesos productivos.",
+    image: "/images/nuestros-servicios/servicio2.jpg",
+  },
+  {
+    title: "Destrucción Fiscal",
+    description:
+      "Destrucción de mercancías de las que se tiene que tener certeza que dejarán de circular en el mercado. Destrucción de papelería fiscal.",
+    image: "/images/nuestros-servicios/servicio3.jpg",
+  },
+  {
+    title: "Reciclaje y Acopio de Residuos",
+    description:
+      "Recepción de materiales susceptibles de valorizar, para enviarse a un proceso posterior de reciclaje.",
+    image: "/images/nuestros-servicios/servicio4.jpg",
+  },
+  {
+    title: "Planta de Valoración de Residuos",
+    description:
+      "Sitio donde se realiza la separación de residuos con objeto de darles un reuso a estos materiales.",
+    image: "/images/nuestros-servicios/servicio5.jpg",
+  },
+  {
+    title: "Planes de Manejo de Residuos",
+    description:
+      "Instrumento que la autoridad requiere a los generadores, con objeto de verificar que estos den un manejo adecuado a los residuos.",
+    image: "/images/nuestros-servicios/servicio6.jpg",
+  },
+  {
+    title: "Asesoría Ambiental",
+    description:
+      "Apoyo a clientes en trámites y gestiones ante la autoridad ambiental.",
+    image: "/images/nuestros-servicios/servicio7.jpg",
+  },
+  {
+    title: "Disposición de Residuos en Rellenos Sanitarios Autorizados",
+    description:
+      "Proceso de entrega de residuos que ya no tienen probabilidad de uso en algún esquema de reciclaje, en sitios especializados y debidamente autorizados para este objeto.",
+    image: "/images/nuestros-servicios/servicio8.jpg",
+  },
+];
+---
+
+<div  id="services" class="flex flex-col items-center text-center pt-8">
+  <h2 class="font-bold text-danger mb-3 title-glow">Nuestros Servicios</h2>
+  <p class="text-muted mb-4">
+    Soluciones integrales para la gestión, recolección, reciclaje y disposición adecuada de residuos, con asesoría ambiental personalizada y cumplimiento normativo garantizado.
+  </p>
+</div>
+
+<div class="carousel-container pt-8 text-center">
+  <div class="carousel">
+    {services.map((service, index) => (
+      <div class="slide" data-index={index}> 
+        <img class="image-carousel" src={service.image} alt={service.title} />
+        <div class="overlay">
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<!-- Botones solo en PC -->
+<div class="grid grid-cols-9 items-center gap-2 px-25 py-5 botones-container">
+  {services.slice(0,4).map((service, index) => (
+    <label class={`text-item ${index === 0 ? "active" : ""}`} data-index={index}>
+      <span>{service.title}</span>
+    </label>
+  ))}
+  <div class="col-span-1"></div>
+  {services.slice(4,8).map((service, index) => (
+    <label class={`text-item ${index+4 === 0 ? "active" : ""}`} data-index={index+4}>
+      <span>{service.title}</span>
+    </label>
+  ))}
+</div>
+
+<script client:load>
+  let currentIndex = 2;
+  const slides = document.querySelectorAll(".slide");
+  const textItems = document.querySelectorAll(".text-item");
+
+  function updateCarousel(index) {
+    slides.forEach((slide, i) => {
+      slide.style.opacity = i === index ? "1" : "0";
+      slide.style.transition = "opacity 0.5s ease-in-out";
+    });
+
+    textItems.forEach((item, i) => {
+      item.classList.toggle("active", i === index - 1);
+    });
+  }
+
+  function autoSlide() {
+    updateCarousel(currentIndex);
+    currentIndex = (currentIndex + 1) 
+    if (currentIndex == 9) currentIndex = 1;
+  }
+
+  let interval = setInterval(autoSlide, 5000);
+  updateCarousel(1);
+
+  textItems.forEach((item, i) => {
+    item.addEventListener("click", () => {
+      currentIndex = parseInt(i + 1);
+      updateCarousel(currentIndex);
+      clearInterval(interval);
+      interval = setInterval(autoSlide, 5000);
+    });
+  });
+</script>
+
+<style>
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 70%;
+  height: 70vh; /* Mayor altura en móvil */
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-carousel {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  backdrop-filter: blur(3px);
+}
+
+/* Ocultar botones en móvil */
+@media (max-width: 768px) {
+  .botones-container {
+    display: none;
+  }
+  
+  /* Ajustar el tamaño de la imagen para que no se vea cortada en móviles */
+  .carousel {
+    height: 55vh;
+    max-width: 90%;
+  }
+}
+
+.text-item {
+  width: 100%;
+  height: 60px;
+  cursor: pointer;
+  color: #555;
+  padding: 6px 8px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #f9f9f9, #e5e5e5);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+.text-item.active,
+.text-item:hover {
+  color: #fff;
+  background: linear-gradient(135deg, rgb(176,42,43), rgb(91,3,3));
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(176,42,43,0.6);
+}
+</style>

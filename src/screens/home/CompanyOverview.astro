@@ -1,0 +1,55 @@
+---
+const companyInfo = {
+  title: "Sobre Nosotros",
+  description:
+    "En Recolectora Industrial de Occidente, nos especializamos en la gestión integral de residuos industriales. Con años de experiencia, ofrecemos soluciones eficientes y sostenibles para el manejo de residuos, contribuyendo al cuidado del medio ambiente y al cumplimiento de las normativas vigentes.",
+  imageUrl: "/images/sobrenosotros.jpg", // Asegúrate de que la imagen tenga la extensión correcta.
+  moreInfoUrl: "/nosotros" // Enlace a la página detallada.
+};
+---
+
+<!-- ✅ Cargar AOS desde CDN en el navegador -->
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</head>
+
+<section id="about" class="py-10 bg-gray-100">
+  <div class="container mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row items-center gap-10">
+    
+    <!-- Columna de imagen con animación -->
+    <div class="w-full md:w-1/2 flex justify-center" data-aos="fade-right">
+      <img 
+        src={companyInfo.imageUrl} 
+        alt="Sobre Nosotros" 
+        class="rounded-lg shadow-lg border-4 border-red-600 w-full max-w-md"
+      />
+    </div>
+
+    <!-- Columna de texto con animación -->
+    <div class="w-full md:w-1/2 text-center md:text-left" data-aos="fade-left">
+      <h2 class="font-bold text-danger mb-3 title-glow">{companyInfo.title}</h2>
+      <p class="mt-4 text-gray-700 leading-relaxed">{companyInfo.description}</p>
+      
+      <!-- Botón para más información -->
+      <a href={companyInfo.moreInfoUrl} 
+        class="inline-block mt-6 px-6 py-3 text-white bg-red-600 hover:bg-red-700 transition rounded-lg shadow-md">
+        Conoce más sobre nosotros
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Inicializar AOS en el cliente -->
+<script client:load>
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(() => {
+      if (typeof AOS !== "undefined") {
+        AOS.init({ duration: 1000 });
+        console.log("✅ AOS cargado y funcionando correctamente.");
+      } else {
+        console.error("❌ AOS sigue sin estar disponible.");
+      }
+    }, 500);
+  });
+</script>

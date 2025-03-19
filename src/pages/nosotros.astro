@@ -1,27 +1,266 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import MenuMovil from '../components/MenuMovil.astro';
+import MenuPc from '../components/MenuPc.astro';
+import '../styles/global.css';
 ---
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Agregar FontAwesome para los iconos -->
+  
+
+  <script src="https://kit.fontawesome.com/YOUR-FONTAWESOME-KIT.js" crossorigin="anonymous"></script>
+</head>
 
 <Header />
 
-<div class="container mt-5">
-  <h1 class="text-center text-primary">Sobre Nosotros</h1>
-  <p class="text-center">Conoce más sobre nuestra empresa y nuestro compromiso con el medio ambiente.</p>
-
-  <div class="row mt-4">
-    <div class="col-md-6">
-      <img src="/images/nosotros.jpg" class="img-fluid rounded" alt="Nosotros">
-    </div>
-    <div class="col-md-6">
-      <h3>Nuestra Historia</h3>
-      <p>RIO RECOLECTORA tiene más de 10 años de experiencia en la recolección y manejo de residuos industriales y comerciales.</p>
-      <h3>Misión</h3>
-      <p>Brindar soluciones responsables y eficientes en el manejo de residuos, promoviendo la sustentabilidad.</p>
-      <h3>Visión</h3>
-      <p>Ser la empresa líder en recolección y reciclaje en el país.</p>
-    </div>
-  </div>
+<!-- ✅ Solo mostrar en PC -->
+<div class="hidden md:block">
+  <MenuPc />
 </div>
 
+<!-- ✅ Solo mostrar en móviles -->
+<div class="block md:hidden">
+  <MenuMovil />
+</div>
+
+
+<section class="container mx-auto px-6 md:px-12 lg:px-20 py-12">
+  <h1 class="text-center text-primary text-danger">Misión, Visión e Historia</h1>
+  <p class="text-lg text-center mt-2 font-semibold text-gray-700">
+    Conoce más sobre nuestra empresa y nuestro compromiso con el medio ambiente.
+  </p>
+
+  <!-- Sección de animación de onda y texto -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 items-center">
+    <!-- ✅ Canvas con animación de onda -->
+    <div class="flex justify-center relative">
+      <canvas id="waveCanvas" class="wave-animation"></canvas>
+    </div>
+    <div data-aos="fade-left">
+      
+      <p class="mt-3 text-xl">
+        RIO RECOLECTORA tiene más de 10 años de experiencia en la recolección y manejo de residuos industriales y comerciales.
+      </p>
+    </div>
+  </div>
+
+  <!-- ✅ Diseño Mejorado para Misión y Visión -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
+    <div class="mission-card" data-aos="fade-up">
+      <h2 class="text-center text-primary text-danger">Misión</h2>
+      <p>Solucionar la problemática actual en el manejo de los residuos.</p>
+    </div>
+    <div class="vision-card" data-aos="fade-up">
+      <h2 class="text-center text-primary text-danger">Visión</h2>
+      <p>Posicionarnos en el Estado como la mejor opción en el servicio de recolección, transporte y destino final de los residuos.</p>
+    </div>
+  </div>
+
+  <!-- Historia detallada -->
+<!-- Sección completa con fondo -->
+<section class="py-12 bg-gray-100 text-gray-800">
+  <div class="container mx-auto px-6 md:px-12 lg:px-20 text-center">
+    
+    <!-- Título de la sección -->
+    <h2 class="text-center text-primary text-danger 700 mb-6" data-aos="fade-up">
+      Nuestra Historia
+    </h2>
+
+    <p class="text-lg text-gray-700 mb-6 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+      Conoce más sobre nuestra empresa y nuestro compromiso con la excelencia en el manejo de residuos.
+    </p>
+
+    <!-- Contenedor del texto animado -->
+    <div class="mt-8 space-y-6 max-w-4xl mx-auto">
+      
+      <p class="text-xl flex items-center justify-start gap-3" data-aos="fade-right">
+        <i class="fas fa-industry text-red-700 text-3xl"></i>
+        <span class="font-semibold">
+          <span class="text-red-700 font-bold">Recolectora Industrial de Occidente R.I.O</span> inicia operaciones en el año 2002, con una visión de crecimiento basada en la excelencia en el servicio.
+        </span>
+      </p>
+
+      <p class="text-xl flex items-center justify-start gap-3" data-aos="fade-right" data-aos-delay="200">
+        <i class="fas fa-check-circle text-green-600 text-3xl"></i>
+        <span class="font-semibold">
+          <span class="text-red-700 font-bold">R.I.O.</span> es una empresa con objetivos claros y persistentes. El cliente necesita un servicio de calidad, nosotros somos la mejor opción en el mercado.
+        </span>
+      </p>
+
+      <p class="text-xl flex items-center justify-start gap-3" data-aos="fade-right" data-aos-delay="400">
+        <i class="fas fa-chart-line text-blue-600 text-3xl"></i>
+        <span class="font-semibold">
+          Hoy en día la competencia por el mercado nos obliga a capacitarnos y actualizarnos continuamente, implementando estrategias que beneficien a nuestros clientes.
+        </span>
+      </p>
+
+      <p class="text-xl flex items-center justify-start gap-3" data-aos="fade-right" data-aos-delay="600">
+        <i class="fas fa-users text-purple-600 text-3xl"></i>
+        <span class="font-semibold">
+          Nos enorgullece contar con colaboradores altamente comprometidos y entregados al servicio del cliente.
+        </span>
+      </p>
+
+      <p class="text-xl flex items-center justify-start gap-3" data-aos="fade-right" data-aos-delay="800">
+        <i class="fas fa-tools text-yellow-600 text-3xl"></i>
+        <span class="font-semibold">
+          Trabajamos con tecnología de punta en recolección y gestión de residuos, asegurando servicios de mantenimiento y limpieza eficientes.
+        </span>
+      </p>
+
+      <p class="text-xl flex items-center justify-start gap-3" data-aos="fade-right" data-aos-delay="1000">
+        <i class="fas fa-building text-gray-700 text-3xl"></i>
+        <span class="font-semibold text-red-700">
+          Nuestra infraestructura está diseñada para ofrecer la mejor experiencia y satisfacción a nuestros clientes.
+        </span>
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+  <!-- ✅ Reproductor de video en lugar de la imagen -->
+  <div class="mt-8 flex justify-center" data-aos="fade-up">
+   <object type="application/x-shockwave-flash" data="https://www.riorecolectora.com/video.swf" width="640" height="360">
+    <param name="movie" value="https://www.riorecolectora.com/video.swf" />
+    <param name="allowFullScreen" value="true" />
+    <p>Tu navegador no soporta Flash. <a href="https://ruffle.rs/">Instala Ruffle</a></p>
+</object>
+
+  </div>
+
+  
+  <div class="flex justify-center pt-8" data-aos="fade-right">
+   <img src="/images/nosotros/RIO.jpeg" 
+     alt="RIO Recolectora" 
+     class="rounded-lg w-full max-w-2xl neon-border" 
+     data-aos="fade-right">
+
+
+
+    </div>
+</section>
+
 <Footer />
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+<!-- Animaciones con AOS -->
+<script client:load>
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(() => {
+      if (typeof AOS !== "undefined") {
+        AOS.init({ duration: 1000 });
+        console.log("✅ AOS cargado y funcionando correctamente.");
+      } else {
+        console.error("❌ AOS sigue sin estar disponible.");
+      }
+    }, 500);
+  });
+
+  // ✅ Animación de onda en canvas (grises y más lentas)
+  window.onload = function() {
+    const canvas = document.getElementById('waveCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = 400; // Se ajusta tamaño más grande
+      canvas.height = 180;
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const waves = [];
+    const waveCount = 5; // Número de ondas
+    const waveHeight = 30; // Amplitud de la onda
+    const waveSpeed = 0.0005; // Movimiento más lento
+
+    for (let i = 0; i < waveCount; i++) {
+      waves.push({
+        frequency: 0.02,
+        phase: Math.PI * i / waveCount,
+        direction: i % 2 === 0 ? 1 : -1, // Alterna direcciones
+      });
+    }
+
+    function animate(time) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      waves.forEach((wave, index) => {
+        ctx.beginPath();
+        for (let x = 0; x < canvas.width; x++) {
+          const y = canvas.height / 2 +
+                    Math.sin(x * wave.frequency + time * waveSpeed * wave.direction + wave.phase) * waveHeight;
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = "rgba(100, 100, 100, 0.7)"; // Color gris
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate(0);
+  };
+</script>
+
+<style>
+/* ✅ Ocultar menú móvil en PC y viceversa */
+@media (min-width: 768px) {
+  .menu-movil { display: none; }
+}
+@media (max-width: 767px) {
+  .menu-pc { display: none; }
+}
+
+/* ✅ Estilo del canvas */
+.wave-animation {
+  width: 90%;
+  max-width: 80vh;
+  height: auto;
+}
+@keyframes neonGlow {
+  0% { border-color: rgba(255, 0, 0, 0.5); box-shadow: 0 0 5px red; }
+  50% { border-color: rgba(255, 255, 0, 0.7); box-shadow: 0 0 15px yellow; }
+  100% { border-color: rgba(255, 0, 0, 0.5); box-shadow: 0 0 5px red; }
+}
+
+.neon-border {
+  border: 4px solid red;
+  border-radius: 10px;
+  animation: neonGlow 2s infinite alternate;
+}
+
+/* ✅ Estilo Mejorado para Misión y Visión */
+.mission-card, .vision-card {
+  background: black;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mission-card {
+  border: 4px solid red;
+}
+
+.vision-card {
+  border: 4px solid red;
+}
+</style>
